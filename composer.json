@@ -18,7 +18,24 @@
         "sensio/distribution-bundle": "2.3.*",
         "sensio/framework-extra-bundle": "2.3.*",
         "sensio/generator-bundle": "2.3.*",
-        "incenteev/composer-parameter-handler": "~2.0"
+        "incenteev/composer-parameter-handler": "~2.0",
+
+        "friendsofsymfony/jsrouting-bundle": "~1.2",
+        "willdurand/expose-translation-bundle": "dev-master",
+        
+        "stof/doctrine-extensions-bundle": "dev-master",
+        "presta/sitemap-bundle": "dev-master",  
+        "friendsofsymfony/user-bundle": "~2.0@dev",
+        
+	"ephp/acl": "master@dev",
+	"ephp/imap": "master@dev",
+        "ephp/stats": "master@dev",
+        "ephp/tag": "master@dev",
+        "ephp/socketio": "dev-master",
+        "ephp/utility": "master@dev",
+        "hwi/oauth-bundle": "0.3.*@dev",
+        "juliendidier/buzz-bundle": "dev-master"
+
     },
     "scripts": {
         "post-install-cmd": [
