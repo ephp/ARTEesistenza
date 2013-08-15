@@ -13,3 +13,9 @@ parameters:
 
     locale:            it
     secret:            ThisTokenIsNotSoSecretChangeIt
+
+    # COMPASS
+    ruby: /usr/bin/ruby
+    scss: /usr/bin/sass                
+    compass:   /usr/bin/compass
+    compass_load_path: %kernel.root_dir%/../compass/extensions
