@@ -8,6 +8,9 @@ vendor/*
 web/uploads/*
 web/bundles/*
 web/Proteus/*
+web/js/*
+web/css/*
+web/files/*
 bin/*
 
 # Configuration files
