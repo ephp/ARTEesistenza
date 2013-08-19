@@ -30,7 +30,7 @@ assetic:
     debug:          "%kernel.debug%"
     use_controller: false
     #write_to:       %kernel.root_dir%/../web/ 
-    #bundles:        [SNWebBundle,SNUserBundle,FOSUserBundle]
+    #bundles:        [AEWebBundle]
     #java: /usr/bin/java
     ruby: %ruby%
     filters:
@@ -72,3 +72,82 @@ swiftmailer:
     username:  %mailer_user%
     password:  %mailer_password%
     spool:     { type: memory }
+
+#GEDMO SLUG
+#https://github.com/stof/StofDoctrineExtensionsBundle/blob/master/Resources/doc/index.rst
+stof_doctrine_extensions:
+    default_locale: it_IT
+    orm:
+        default: 
+            timestampable:  true
+            sluggable:      true
+            translatable:   true
+            
+fos_user:
+    db_driver: orm
+    firewall_name: main
+    user_class: Ephp\ACLBundle\Entity\User
+    service:
+        mailer: fos_user.mailer.twig_swift
+    registration:
+        #form type serve a sovrascrivere il form di registrazione di FOS, love_user_registration è ul nome del form
+#        form:
+#            type: inprivee_user_registration #form personale
+        confirmation:
+            enabled:    true
+            template:   FOSUserBundle:Email:registrazioneAccount.txt.twig
+            
+            from_email:
+                address:        %mailer_username%
+                sender_name:    %mailer_user%
+
+hwi_oauth:
+    #Fornitore Utenti 
+    #questo è il mio fornitore utenti personalizzato, creato da FOSUBUserProvider - gestirà il
+    #registrazione utente # automatico sul tuo sito, con i dati del fornitore (facebook. google, ecc)
+    #e anche la parte di collegamento (ottenere il token e il user_id)
+    connect:
+        account_connector: my_user_provider
+    # name of the firewall in which this bundle is active, this setting MUST be set
+    firewall_name: main
+    fosub:
+        username_iterations: 30
+        properties:
+            # these properties will be used/redefined later in the custom FOSUBUserProvider service.
+            facebook: facebook_id
+            #google: google_id
+            twitter: twitter_id
+    resource_owners:
+        twitter:
+            type:                twitter
+            client_id:           %twitter.app_id%
+            client_secret:       %twitter.app_secret%
+        facebook:
+            type:                facebook
+            client_id:           %facebook.app_id%
+            client_secret:       %facebook.app_secret%
+            scope:               "email,user_birthday,xmpp_login"
+            infos_url:           "https://graph.facebook.com/me?fields=id,name,email,gender,first_name,last_name,locale,birthday,username,picture.type(square)" #da Graph API EXPLORER
+            paths:
+                email:          email
+                profilepicture: picture.data.url
+            options:
+                display: popup #dialog is optimized for popup window
+                width: 400px
+                height: 400px
+   #     google:
+   #         type:                google
+   #         client_id:           824963536212-tkm7bkij8d52tpuhnba640q6ldf6purf.apps.googleusercontent.com
+   #         client_secret:       F5oyc_PKqS0T0hDh8xk0QEmB
+   #         scope:               "https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile"
+   # here you will add one (or more) configurations for resource owners
+    
+ephp_acl:
+    user_class: Ephp\ACLBundle\Entity\User   
+
+ephp_imap:
+    server:   %mailer_imap%
+    port:     %mailer_imap_port%
+    protocol: %mailer_imap_protocol%
+    username: %mailer_username%
+    password: %mailer_password% 

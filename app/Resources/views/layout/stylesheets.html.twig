@@ -1,0 +1,29 @@
+{% stylesheets 
+    '../app/Resources/public/css/foundation.min.css'
+    '../app/Resources/public/css/styles.css'
+    '../app/Resources/public/lib/titan/css/jquery.titanlighbox.css'
+    '../app/Resources/public/lib/rs-plugin/css/settings.css'
+%}
+    <link rel="stylesheet" href="{{ asset_url }}" />
+{% endstylesheets %}
+{% stylesheets 
+    '../app/Resources/public/lib/titan/css/jquery.titanlighbox.css'
+%}
+    <link rel="stylesheet" href="{{ asset_url }}" rel="stylesheet" />
+{% endstylesheets %}
+{% stylesheets 
+    '../app/Resources/public/lib/rs-plugin/css/settings.css'
+%}
+    <link rel="stylesheet" href="{{ asset_url }}" media="screen" />
+{% endstylesheets %}
+<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600' rel='stylesheet'>  
+{% if theme_panel is defined and theme_panel %}
+    {% stylesheets 
+        '../app/Resources/public/lib/themes_panel/farbtastic/farbtastic.css'
+        '../app/Resources/public/lib/themes_panel/themes_panel.css'
+        '../app/Resources/public/css/colors.css'
+    %}
+        <link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
+{% endif %}
+    

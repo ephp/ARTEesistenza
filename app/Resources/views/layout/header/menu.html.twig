@@ -1,0 +1,4 @@
+{% if menu_type is not defined %}
+    {% set menu_type = 'public' %}
+{% endif %}
+{% include "::layout/header/menu/"~menu_type~".html.twig" %}

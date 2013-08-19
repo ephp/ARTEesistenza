@@ -1,0 +1,29 @@
+{% if theme_panel is defined and theme_panel %}
+    <!-- THEMES PANEL -->
+    <div id="themes_panel">
+      <div id="themes_menu">
+        <div class="segment">
+          <h6>Theme Colour</h6>
+          <ul class="theme buttons">
+            <li><a href="#" title="purple"><img src="files/themes_panel/buttons/theme_purple.jpg" alt="" /></a></li>
+            <li><a href="#" title="pink"><img src="files/themes_panel/buttons/theme_pink.jpg" alt="" /></a></li>
+            <li><a href="#" title="blue"><img src="files/themes_panel/buttons/theme_blue.jpg" alt="" /></a></li>
+            <li><a href="#" title="green"><img src="files/themes_panel/buttons/theme_green.jpg" alt="" /></a></li>
+            <li><a href="#" title="orange"><img src="files/themes_panel/buttons/theme_orange.jpg" alt="" /></a></li>
+            <li><a href="#" title="red"><img src="files/themes_panel/buttons/theme_red.jpg" alt="" /></a></li>
+          </ul>
+        </div>
+        <div class="segment"> Background
+          <div class="pick_color"> <a class="pick_color_btn">
+            <form>
+              <input type="text" id="color" name="color" readonly value="#ccc" />
+            </form>
+            </a> </div>
+        </div>
+        <div class="segment noborder"> <a class="reset_btn" href="#">Reset</a> </div>
+      </div>
+      <div id="toggle_button"><a href="#"></a></div>
+      <div id="colorpicker"></div>
+    </div>
+    <!-- END THEMES PANEL --> 
+{% endif %}

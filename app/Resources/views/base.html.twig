@@ -1,13 +1,44 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+
+<head>
+<meta charset="utf-8">
+<title>{% block title %}ARTEesistenza{% endblock %}</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width">
+<meta name="description" content="Una risorsa culturale per Livorno per dialogare con le realtà cittadine" />
+<meta name="keywords" content="ARTEesistenza, Livorno, Teatro, Danza, Musica, Cinema, Letteratura, Pittura" />
+<meta name="author" content="Ephraim Pepe" />
+<link rel="icon" href="files/images/favicon.ico" />
+
+{% include "::layout/stylesheets.html.twig" %}
+{% block css %}{% endblock %}
+<script type="text/css">
+    {% block inline_css %}{% endblock %}
+</script>
+{% include "::layout/javascript.html.twig" %}
+{% block js %}{% endblock %}
+<script type="text/javascript">
+    {% block inline_js %}{% endblock %}
+        $(document).ready(function(){
+            {% block ready_js %}{% endblock %}
+        });
+</script>
+
+</head>
+<body>
+
+{% include "::layout/theme_panel.html.twig" %}
+{% include "::layout/header.html.twig" %}
+{% include "::layout/breadcrumbs.html.twig" %}
+{% include "::layout/slide_foto.html.twig" %}
+{% block body %}
+    {% include "::layout/demo.html.twig" %}
+{% endblock %}
+{% include "::layout/footer.html.twig" %}
+
+</body>
 </html>

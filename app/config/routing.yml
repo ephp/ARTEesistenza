@@ -1,0 +1,35 @@
+ae_web:
+    resource: "@AEWebBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+#Routing del Js bundle
+fos_js_routing:
+    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
+    
+#FORM TRADUZIONE VALIDAZIONE JS
+_bazinga_exposetranslation:
+    resource: "@BazingaExposeTranslationBundle/Resources/config/routing/routing.yml"
+
+
+#HWIOAuthBundle routes
+hwi_oauth_security:
+    resource: "@HWIOAuthBundle/Resources/config/routing/login.xml"
+    prefix: /login
+ 
+hwi_oauth_connect:
+    resource: "@HWIOAuthBundle/Resources/config/routing/connect.xml"
+    prefix: /login
+ 
+hwi_oauth_redirect:
+    resource: "@HWIOAuthBundle/Resources/config/routing/redirect.xml"
+    prefix:   /login
+ 
+facebook_login:
+    pattern: /login/check-facebook
+ 
+#google_login:
+#    pattern: /login/check-google 
+    
+twitter_login:
+    pattern: /login/check-twitter
