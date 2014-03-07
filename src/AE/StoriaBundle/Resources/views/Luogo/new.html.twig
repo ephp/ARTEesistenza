@@ -1,0 +1,21 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+<div class="container main_content">
+    <div class="row">
+        <div class="twelve columns"> 
+            <h1>Nuovo Luogo</h1>
+            <form action="{{ path('luoghi_create') }}" method="post" {{ form_enctype(form) }}>
+                {{ form_widget(form) }}
+                <p>
+                    <button type="submit">Create</button>
+                </p>
+            </form>
+
+            <a href="{{ path('luoghi') }}">
+                Torna indietro
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

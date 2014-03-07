@@ -1,0 +1,110 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Luogo</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Inizioattivita</th>
+                <td>{{ entity.inizioAttivita }}</td>
+            </tr>
+            <tr>
+                <th>Fineattivita</th>
+                <td>{{ entity.fineAttivita }}</td>
+            </tr>
+            <tr>
+                <th>Gestori</th>
+                <td>{{ entity.gestori }}</td>
+            </tr>
+            <tr>
+                <th>Nome</th>
+                <td>{{ entity.nome }}</td>
+            </tr>
+            <tr>
+                <th>Logo</th>
+                <td>{{ entity.logo }}</td>
+            </tr>
+            <tr>
+                <th>Storia</th>
+                <td>{{ entity.storia }}</td>
+            </tr>
+            <tr>
+                <th>Chiusura</th>
+                <td>{{ entity.chiusura }}</td>
+            </tr>
+            <tr>
+                <th>Artisti</th>
+                <td>{{ entity.artisti }}</td>
+            </tr>
+            <tr>
+                <th>Contatti</th>
+                <td>{{ entity.contatti }}</td>
+            </tr>
+            <tr>
+                <th>Pubblico</th>
+                <td>{{ entity.pubblico }}</td>
+            </tr>
+            <tr>
+                <th>Aperto</th>
+                <td>{{ entity.aperto }}</td>
+            </tr>
+            <tr>
+                <th>Slug</th>
+                <td>{{ entity.slug }}</td>
+            </tr>
+            <tr>
+                <th>Position</th>
+                <td>{{ entity.position }}</td>
+            </tr>
+            <tr>
+                <th>Cap</th>
+                <td>{{ entity.cap }}</td>
+            </tr>
+            <tr>
+                <th>Indirizzo</th>
+                <td>{{ entity.indirizzo }}</td>
+            </tr>
+            <tr>
+                <th>Latitudine</th>
+                <td>{{ entity.latitudine }}</td>
+            </tr>
+            <tr>
+                <th>Longitudine</th>
+                <td>{{ entity.longitudine }}</td>
+            </tr>
+            <tr>
+                <th>Latitudinerad</th>
+                <td>{{ entity.latitudinerad }}</td>
+            </tr>
+            <tr>
+                <th>Longitudinerad</th>
+                <td>{{ entity.longitudinerad }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('luoghi') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('luoghi_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>
+        <form action="{{ path('luoghi_delete', { 'id': entity.id }) }}" method="post">
+            <input type="hidden" name="_method" value="DELETE" />
+            {{ form_widget(delete_form) }}
+            <button type="submit">Delete</button>
+        </form>
+    </li>
+</ul>
+{% endblock %}

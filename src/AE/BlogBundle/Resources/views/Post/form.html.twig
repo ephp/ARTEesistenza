@@ -1,0 +1,39 @@
+<div>
+    {{ form_label(form.title) }}
+    {{ form_widget(form.title) }}
+</div>
+<fieldset>
+    <legend>{{ form_label(form.choice) }}</legend>
+    <div>
+        {{ form_widget(form.choice) }}
+    </div>
+    <div style="clear: both"></div>
+    <div id="js_sp" class="js_s" style="display: none">
+        {{ render(controller('EphpDragDropBundle:Render:uploadNf')) }}
+    </div>
+    <div id="js_sv" class="js_s" style="display: none">
+        {{ form_label(form.video) }}
+        {{ form_widget(form.video) }}
+    </div>
+</fieldset>
+<div>
+    {{ form_label(form.body) }}
+    {{ form_widget(form.body) }}
+</div>
+<div>
+    {{ form_label(form.url) }}
+    {{ form_widget(form.url) }}
+</div>
+<div>
+    {{ form_label(form.categories) }}
+    {{ form_widget(form.categories) }}
+</div>
+<div style="clear: both"></div>
+{{ form_rest(form) }}
+{% javascripts  
+    '@EphpUtilityBundle/Resources/public/js/commons/sugar-1.3.9-custom.min.js'
+    '@EphpUtilityBundle/Resources/public/js/check_sanitize_regexp.js'
+    '@EphpBlogBundle/Resources/public/js/form.js'
+%}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+{% endjavascripts %}

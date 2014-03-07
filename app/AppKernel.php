@@ -24,14 +24,20 @@ class AppKernel extends Kernel
             
             new FOS\UserBundle\FOSUserBundle(),            
             new Ephp\ACLBundle\EphpACLBundle(),
-//            new FOS\FacebookBundle\FOSFacebookBundle(),
+            new PunkAve\FileUploaderBundle\PunkAveFileUploaderBundle(),
             
             new Ephp\TagBundle\EphpTagBundle(), /* NC */
             new Ephp\StatsBundle\EphpStatsBundle(), /* NC */
             new Ephp\ImapBundle\EphpImapBundle(),
+            new Ephp\GeoBundle\EphpGeoBundle(), /* NC */
+            new Ephp\BlogBundle\EphpBlogBundle(), /* NC */
+            new Ephp\DragDropBundle\EphpDragDropBundle(), /* NC */
+            new Ephp\UtilityBundle\EphpUtilityBundle(), /* NC */
             
             new HWI\Bundle\OAuthBundle\HWIOAuthBundle(),
             new AE\WebBundle\AEWebBundle(),
+            new AE\StoriaBundle\AEStoriaBundle(),
+            new AE\BlogBundle\AEBlogBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

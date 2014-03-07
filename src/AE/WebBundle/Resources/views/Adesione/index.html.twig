@@ -1,0 +1,69 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+<div class="container main_content">
+    <div class="row">
+        <div class="twelve columns">
+            <p>
+                Per ora <b>ARTEesistenza</b> ha raccolto <b>{{ associazioni|length + cittadini|length }}</b> adesioni fra associazioni e cittadini.<br />
+                Ecco gli elenci delle associazioni e dei cittadini che hanno aderito al <a href="{{ path('manifesto') }}">Manifesto di <b>ARTEesistenza</b></a>
+            </p>
+            <p>
+                <a href="{{ path('progetto_adesioni_new') }}" class="radius secondary button">
+                    Clicca qui per aderire
+                </a>
+            </p>
+        </div>
+        <div class="six columns">
+            <h5>Associazioni</h5>
+            <table class="records_list">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Nome</th>
+                        <th>Associato il</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for entity in associazioni %}
+                        <tr>
+                            <td>{{ loop.index }}</td>
+                            {% if entity.sito %}
+                                <td><a href="{{ entity.sito }}" target="_blank">{{ entity.nome }} &LeftTriangle;</a></td>
+                            {% else %}
+                                <td>{{ entity.nome }}</td>
+                            {% endif %}
+                            <td>{% if entity.createdAt %}{{ entity.createdAt|date('Y-m-d') }}{% endif %}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="six columns ">
+            <h5>Cittadini</h5>
+            <table class="records_list">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Nome</th>
+                        <th>Associato il</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for entity in cittadini %}
+                        <tr>
+                            <td>{{ loop.index }}</td>
+                            {% if entity.sito %}
+                                <td><a href="{{ entity.sito }}" target="_blank">{{ entity.nome }} &LeftTriangle;</a></td>
+                            {% else %}
+                                <td>{{ entity.nome }}</td>
+                            {% endif %}
+                            <td>{% if entity.createdAt %}{{ entity.createdAt|date('Y-m-d') }}{% endif %}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

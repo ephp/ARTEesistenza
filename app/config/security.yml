@@ -9,14 +9,12 @@ security:
 
     providers:
         fos_userbundle:
-                id: fos_user.user_manager
+            id: fos_user.user_manager
         in_memory:
             memory:
                 users:
                     user:  { password: userpass, roles: [ 'ROLE_USER' ] }
-                    barno: { password: hellokitty, roles: [ 'ROLE_SUPER_ADMIN' ] }
                     dodo:  { password: pci, roles: [ 'ROLE_SUPER_ADMIN' ] }
-
 
     firewalls:
         secured_area:

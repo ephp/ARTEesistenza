@@ -1,0 +1,75 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+<div class="container main_content">
+    <div class="row">
+        <div class="nine columns"> 
+            {% if app.user %}
+                <a href="{{ path('blog_new') }}" class="radius secondary button">
+                    {{ 'button.new'|trans({}, 'EphpBlogBundle') }}
+                </a>
+            {% endif %}
+            <!-- BLOG POSTS -->
+            <div class="twelve columns">
+                {% for entity in entities %}
+                    <div class="blog-post">
+                        <div class="postdate">
+                            <h3>{{ entity.createdAt|date('d') }}</h3>
+                            <h6>{{ ('month.s'~entity.month)|trans({}, 'EphpBlogBundle') }} {{ entity.year }}</h6>
+                        </div>
+                        <div class="entry-title">
+                            <h1 class="uppercase"><a href="{{ path('blog_show', { 'slug': entity.slug }) }}">{{ entity.title }}</a></h1>
+                            <!-- POSTMETA BLCOK -->
+                            <p class="postmeta">
+                                {{ entity.createdAt|date('d-m-Y') }} | 
+                                {% if false %} <a href="#">3 Comments</a> | {% endif %} 
+                                scritto da <a href="#">{{ entity.user.username }}</a>
+                            </p>
+                            <!-- END POSTMETA BLCOK -->
+                        </div>
+                        {% if entity.isImg %}
+                            <a href="{{ path('blog_show', { 'slug': entity.slug }) }}">
+                                <div style="width: 660px; height: 300px; background-size: cover; background-position: center; background-image: url({{ entity.media }});"></div>
+                            </a>
+                        {% endif %}
+                        {% if entity.isvideo %}
+                            {{ entity.media|raw }}
+                        {% endif %}
+                        <div class="entry-title">
+                            <p class="entry-text">{{ entity.body[:200] }}<br>
+                            </p>
+                            <a class="link-btn" href="{{ path('blog_show', { 'slug': entity.slug }) }}">Leggi tutto →</a> 
+                            {% if app.user %}
+                                <a href="{{ path('blog_edit', {'id': entity.id}) }}" class="radius secondary button">Modifica</a>
+                            {% endif %}
+                        </div>
+                        <hr>
+                    </div>
+                {% endfor %}
+                <!-- END BLOG POSTS --> 
+                <!-- PAGINATION -->
+                <ul class="pagination">
+                    {% if prev %}
+                        <li class="arrow"><a class="link-btn" href="{{ path(route, route_params_prev) }}">{{ 'button.prevs'|trans({}, 'EphpBlogBundle') }}</a><li>
+                    {% else %}
+                        <li class="arrow unavailable"><a class="link-btn" href="javascript:void(0);">{{ 'button.prevs'|trans({}, 'EphpBlogBundle') }}</a><li>
+                    {% endif %}
+                    {% if next %}
+                        <li class="arrow"><a class="link-btn" href="{{ path(route, route_params_next) }}">{{ 'button.nexts'|trans({}, 'EphpBlogBundle') }}</a></li>
+                    {% else %}
+                        <li class="arrow unavailable"><a class="link-btn" href="javascript:void(0);">{{ 'button.nexts'|trans({}, 'EphpBlogBundle') }}</a><li>
+                    {% endif %}
+                </ul>
+                <!-- END PAGINATION --> 
+            </div>
+            <!-- END BLOG POSTS --> 
+        </div>
+
+        {% render(controller('EphpBlogBundle:Post:column')) %}
+    </div>
+</div>
+<!-- END BLOG CONTAINER --> 
+
+
+
+{% endblock %}

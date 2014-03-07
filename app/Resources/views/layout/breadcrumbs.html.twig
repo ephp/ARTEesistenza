@@ -5,11 +5,17 @@
         <div class="twelve columns">
             {% for label, breadcrumb in breadcrumbs %}
                 {% if loop.last %}
+                    {% if breadcrumb.replace is defined %}
+                        {% set label = label|replace(breadcrumb.replace) %}
+                    {% endif %}
                     <p class="page-title">{{ label }}</p>
                 {% endif %}
             {% endfor %}
             <ul class="breadcrumbs">
                 {% for label, breadcrumb in breadcrumbs %}
+                    {% if breadcrumb.replace is defined %}
+                        {% set label = label|replace(breadcrumb.replace) %}
+                    {% endif %}
                     {% if not loop.last and breadcrumb.route is defined %}
                         {% if breadcrumb.params is defined %}
                             <li><a href="{{ path(breadcrumb.route, breadcrumb.params) }}">{{ label }}</a></li>

@@ -29,12 +29,16 @@
         
 	"ephp/acl": "master@dev",
 	"ephp/imap": "master@dev",
+	"ephp/dragdrop": "master@dev",
         "ephp/stats": "master@dev",
         "ephp/tag": "master@dev",
+        "ephp/geo": "master@dev",
+        "ephp/blog": "master@dev",
         "ephp/socketio": "dev-master",
         "ephp/utility": "master@dev",
         "hwi/oauth-bundle": "0.3.*@dev",
-        "juliendidier/buzz-bundle": "dev-master"
+        "juliendidier/buzz-bundle": "dev-master",
+        "punkave/symfony2-file-uploader-bundle": "1.0.*@dev"
 
     },
     "scripts": {

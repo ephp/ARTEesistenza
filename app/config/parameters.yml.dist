@@ -34,3 +34,8 @@ parameters:
     facebook.app_secret: 1378c3ebb45f5f9b63cdf992b6065eec
     twitter.app_id: ert6gEM1Go8YBwTbeeR8g
     twitter.app_secret: s3Qj0GkHmGdYJcV9SRYd0faxkNGKaxpmew5DrAT5dP0
+
+    # DRAG&DROP
+    dimensione_massima_immagine: 2000000
+    larghezza_minima_immagine: 200
+    altezza_minima_immagine: 200

@@ -1,0 +1,58 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+
+<div class="portfolio">
+    <div class="row">
+        <div id="container" class="clickable variable-sizes clearfix"> 
+            <!-- Portfolio Item -->
+            <div class="twelve columns">
+                <a href="{{ path('luoghi_new') }}">
+                    Nuovo luogo
+                </a>
+            </div>
+            <div class="six columns">
+                <h1>Luoghi aperti</h1>
+                {% for entity in aperti %}
+                    <div class="element ill">
+                        <div class="portfolio-item">
+                            <div class="portfolio-item-image image-overlay">
+                                <a class="titan-lb" data-titan-group="gallery" href="{{ path('luoghi_show', { 'slug': entity.slug }) }}" title="{{ entity.nome }}"><img src="{{ entity.logo }}" alt="{{ entity.nome }}" />
+                                    <span class="overlay-icon item-zoom"></span> 
+                                </a> 
+                            </div>
+                            <div class="portfolio-item-content">
+                                <h5 class="title"><a href="{{ path('luoghi_show', { 'slug': entity.slug }) }}">{{ entity.nome }}</a></h5>
+                                <p>{{ entity.indirizzo }}</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <!-- End Portfolio Item --> 
+
+            <!-- Portfolio Item -->
+            <div class="six columns">
+                <h1>Luoghi chiusi</h1>
+                {% for entity in chiusi %}
+                    <div class="element ill">
+                        <div class="portfolio-item">
+                            <div class="portfolio-item-image image-overlay">
+                                <a class="titan-lb" data-titan-group="gallery" href="{{ path('luoghi_show', { 'slug': entity.slug }) }}" title="{{ entity.nome }}"><img src="{{ entity.logo }}" alt="{{ entity.nome }}" />
+                                    <span class="overlay-icon item-zoom"></span> 
+                                </a> 
+                            </div>
+                            <div class="portfolio-item-content">
+                                <h5 class="title"><a href="{{ path('luoghi_show', { 'slug': entity.slug }) }}">{{ entity.nome }}</a></h5>
+                                <p>{{ entity.indirizzo }}</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <!-- End Portfolio Item --> 
+        </div>
+    </div>
+</div>
+
+{% endblock %}

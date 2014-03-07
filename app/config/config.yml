@@ -4,13 +4,13 @@ imports:
 
 framework:
     #esi:             ~
-    #translator:      { fallback: %locale% }
+    translator:      { fallback: %locale% }
     secret:          %secret%
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
-        strict_requirements: ~
-    form:            ~
-    csrf_protection: ~
+        strict_requirements: "%kernel.debug%"
+    form:            true
+    csrf_protection: true
     validation:      { enable_annotations: true }
     templating:
         engines: ['twig']
@@ -25,6 +25,11 @@ framework:
 twig:
     debug:            %kernel.debug%
     strict_variables: %kernel.debug%
+    globals:
+        dimensione_massima_immagine: %dimensione_massima_immagine%
+        larghezza_minima_immagine: %larghezza_minima_immagine%
+        altezza_minima_immagine: %altezza_minima_immagine%
+      
 
 assetic:
     debug:          "%kernel.debug%"

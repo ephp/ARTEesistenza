@@ -1,0 +1,8 @@
+div.inline input {
+    float: left;
+}
+div.inline label {
+    float: left;
+    margin-left: 5px;
+    margin-right: 20px;
+}

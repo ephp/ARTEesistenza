@@ -1,0 +1,24 @@
+{% extends '::base.html.twig' %}
+{% use "form_div_layout.html.twig" %}
+
+{% block body %}
+<div class="container main_content">
+    <div class="row">
+        <div class="twelve columns">
+            <p>
+                Aderendo al <a href="{{ path('manifesto') }}">Manifesto di <b>ARTEesistenza</b></a> 
+                rimarrai aggiornato sulle nostre attività!
+            </p>
+            <form action="{{ path('progetto_adesioni_create') }}" method="post" {{ form_enctype(form) }}>
+                {{ form_widget(form) }}
+                <p>
+                    <b>ATTENZIONE!!!</B> Il tuo indirizzo di posta elettronica e il tuo telefono <b>non</b> saranno pubblicati
+                </p>
+                <p>
+                    <button type="submit" class="radius button">Sottoscrivi</button>
+                </p>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

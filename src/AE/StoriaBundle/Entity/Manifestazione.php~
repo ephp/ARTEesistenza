@@ -1,0 +1,174 @@
+<?php
+
+namespace AE\StoriaBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Manifestazione
+ *
+ * @ORM\Table(name="h_manifestazioni")
+ * @ORM\Entity(repositoryClass="AE\StoriaBundle\Entity\ManifestazioneRepository")
+ */
+class Manifestazione {
+
+    use Traits\Storia;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="prima_edizione", type="integer", nullable=true)
+     */
+    private $primaEdizione;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ultima_edizione", type="integer", nullable=true)
+     */
+    private $ultimaEdizione;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="periodo", type="string", length=64, nullable=true)
+     */
+    private $periodo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="organizzatori", type="text", nullable=true)
+     */
+    private $organizzatori;
+
+    /**
+     * @var \Doctrine\Common\Collections\ArrayCollection $manifestazioni
+     * 
+     * @ORM\ManyToMany(targetEntity="Luogo", inversedBy="manifestazioni", cascade={"all"})
+     * @ORM\JoinTable(name="h_manifestazioni_luoghi",
+     *      joinColumns={@ORM\JoinColumn(name="manifestazione_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="luogo_id", referencedColumnName="id")}
+     * )
+     * @ORM\OrderBy({"nome" = "ASC"}) 
+     */
+    private $luoghi;
+
+    /**
+     * @var \Doctrine\Common\Collections\ArrayCollection $manifestazioni
+     *
+     * @ORM\ManyToMany(targetEntity="Disciplina", cascade={"all"})
+     * @ORM\JoinTable(name="h_manifestazioni_discipline",
+     *      joinColumns={@ORM\JoinColumn(name="manifestazione_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="disciplina_id", referencedColumnName="id")}
+     * )
+     * @ORM\OrderBy({"nome" = "ASC"}) 
+     */
+    private $discipline;
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId() {
+        return $this->id;
+    }
+
+    /**
+     * Set primaEdizione
+     *
+     * @param integer $primaEdizione
+     * @return Manifestazione
+     */
+    public function setPrimaEdizione($primaEdizione) {
+        $this->primaEdizione = $primaEdizione;
+
+        return $this;
+    }
+
+    /**
+     * Get primaEdizione
+     *
+     * @return integer 
+     */
+    public function getPrimaEdizione() {
+        return $this->primaEdizione;
+    }
+
+    /**
+     * Set ultimaEdizione
+     *
+     * @param integer $ultimaEdizione
+     * @return Manifestazione
+     */
+    public function setUltimaEdizione($ultimaEdizione) {
+        $this->ultimaEdizione = $ultimaEdizione;
+
+        return $this;
+    }
+
+    /**
+     * Get ultimaEdizione
+     *
+     * @return integer 
+     */
+    public function getUltimaEdizione() {
+        return $this->ultimaEdizione;
+    }
+
+    /**
+     * Set periodo
+     *
+     * @param string $periodo
+     * @return Manifestazione
+     */
+    public function setPeriodo($periodo) {
+        $this->periodo = $periodo;
+
+        return $this;
+    }
+
+    /**
+     * Get periodo
+     *
+     * @return string 
+     */
+    public function getPeriodo() {
+        return $this->periodo;
+    }
+
+    /**
+     * Set organizzatori
+     *
+     * @param string $organizzatori
+     * @return Manifestazione
+     */
+    public function setOrganizzatori($organizzatori) {
+        $this->organizzatori = $organizzatori;
+
+        return $this;
+    }
+
+    /**
+     * Get organizzatori
+     *
+     * @return string 
+     */
+    public function getOrganizzatori() {
+        return $this->organizzatori;
+    }
+
+    //-----------------------------------------------------
+    //
+    //-----------------------------------------------------
+}

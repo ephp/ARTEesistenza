@@ -1,3 +1,28 @@
+ae_blog:
+    resource: "@AEBlogBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+ephp_blog:
+    resource: "@EphpBlogBundle/Controller/"
+    type:     annotation
+    prefix:   /
+    
+ephp_dd1:
+    resource: "@PunkAveFileUploaderBundle/Controller/"
+    type:     annotation
+    prefix:   /
+    
+ephp_dd2:
+    resource: "@EphpDragDropBundle/Controller/"
+    type:     annotation
+    prefix:   /
+    
+ae_storia:
+    resource: "@AEStoriaBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 ae_web:
     resource: "@AEWebBundle/Controller/"
     type:     annotation
@@ -11,6 +36,8 @@ fos_js_routing:
 _bazinga_exposetranslation:
     resource: "@BazingaExposeTranslationBundle/Resources/config/routing/routing.yml"
 
+_fos:
+    resource: routing_fos_user.yml
 
 #HWIOAuthBundle routes
 hwi_oauth_security:
